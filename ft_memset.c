@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 13:18:52 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/08 14:08:55 by stycho           ###   ########.fr       */
+/*   Created: 2021/10/06 11:11:13 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/09 19:05:03 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	size_t	i;
+	char	*char_b;
+
+	if (b)
+	{
+		char_b = (char *)b;
+		i = 0;
+		while (len--)
+		{
+		   	char_b[i] = (unsigned char)c;
+			i++;
+		}
+	}
+	return (b);
 }

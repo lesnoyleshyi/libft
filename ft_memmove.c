@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 13:18:52 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/08 14:08:55 by stycho           ###   ########.fr       */
+/*   Created: 2021/10/06 22:49:00 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/07 09:30:38 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
+	char		*char_dst;
+	const char	*char_src;
+
+	char_dst = (char *)dst;
+	char_src = (char *)src;
+	if (char_dst < char_src)
+		while (len--)
+			*char_dst++ = *char_src++;
 	else
-		return (0);
+		while (len--)
+			*(char_dst + len) = *(char_src + len);
+	return (dst);
 }

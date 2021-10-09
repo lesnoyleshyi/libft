@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 13:18:52 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/08 14:08:55 by stycho           ###   ########.fr       */
+/*   Created: 2021/10/08 15:54:01 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/08 15:54:03 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	const char	*ch_s1;
+	const char	*ch_s2;
+
+	ch_s1 = s1;
+	ch_s2 = s2;
+	while (n--)
+	{
+		if (*ch_s1 != *ch_s2)
+			return (*ch_s1 - *ch_s2);
+		ch_s1++;
+		ch_s2++;
+	}
+	return (0);
 }
