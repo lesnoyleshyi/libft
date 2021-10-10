@@ -6,7 +6,7 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:53:14 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/09 14:37:46 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/10 20:59:53 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		h_pos++;
 		len--;
 	}
-	return (f_oc);
+	return (NULL);
 }

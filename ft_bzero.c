@@ -6,7 +6,7 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:58:08 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/06 11:59:06 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/09 20:52:18 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,10 @@ void	ft_bzero(void *s, size_t n)
 	char	*char_s;
 
 	i = 0;
-	if (s && n > 0)
+	while (i < n)
 	{
-		while (i < n)
-		{
-			char_s = (char *)s;
-			char_s[i] = '\0';
-			i++;
-		}
+		char_s = (char *)s;
+		char_s[i] = '\0';
+		i++;
 	}
 }

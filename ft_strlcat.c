@@ -1,28 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 18:57:07 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/10 18:57:09 by stycho           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
-#include <stdio.h>
+
+size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char		*d;
-	const char	*s;
-	size_t		len;
+	char		*dst_pos;
+	const char	*src_pos;
+	size_t		dst_len;
 
-	d = dst;
-	s = src;
-	while (*d != '\0')
-		d++;
-	len = d - dst;
-	dstsize = dstsize - len - 1;
-	if (dstsize > 0)
+	dst_pos = dst;
+	src_pos = src;
+	dst_len = 0;
+	if (dstsize)
 	{
-		while (dstsize--)
+		while (*dst_pos)
 		{
-			*d++ = *s++;
-			if (*s == '\0')
-				break;
+			dst_pos++;
+			dstsize--;
+			if (dstsize == 0)
+				return (ft_strlen(src) + (dst_pos - dst));
 		}
-		while(*s)
-			s++;
+		dst_len = dst_pos - dst;
+		while (--dstsize)
+		{
+			*dst_pos++ = *src_pos++;
+		}	
 	}
-	return ((s - src) + len);
+	return ((dst_len) + ft_strlen(src));
 }
