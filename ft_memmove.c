@@ -6,7 +6,7 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 22:49:00 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/09 22:28:37 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/11 12:00:11 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*char_dst;
 	const char	*char_src;
 
-	if (src && dst)
+	if (src || dst)
 	{
 		char_dst = (char *)dst;
 		char_src = (char *)src;

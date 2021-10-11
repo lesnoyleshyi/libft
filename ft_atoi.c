@@ -6,11 +6,9 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:39:01 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/10 22:45:16 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/11 11:39:18 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -29,11 +27,9 @@ int	ft_atoi(const char *str)
 	}
 	while (*str > 47 && *str < 58)
 		res = (res * 10 + (*str++ - '0'));
-	res *= minus_status;
-	printf("res: %lld\n", res);
-	if (res > 9223372063854775807)
+	if (((unsigned long long)res > 9223372036854775807) && minus_status > 0)
 		return (-1);
-	if (res < -2147483648)
+	if (((unsigned long long)res > 9223372036854775807) && minus_status < 0)
 		return (0);
-	return ((int)res);
+	return ((int)res * minus_status);
 }
