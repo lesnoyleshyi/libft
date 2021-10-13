@@ -6,7 +6,7 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:50:19 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/13 20:06:07 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/13 23:23:56 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ void	ft_putstr_fd(char *s, int fd)
 	{
 		while (*s)
 			write(fd, s++, sizeof(char));
-		write(fd, "\0", sizeof(char));
 	}
 }

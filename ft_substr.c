@@ -6,7 +6,7 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 18:49:37 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/11 18:49:39 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/13 23:01:22 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*s_copy;
 	char	*s_copy_start;
 
-	s_pos = (char *)s;
-	req_l = 0;
-	s_copy_start = NULL;
-	while (*(s_pos++ + start) && len--)
-		req_l++;
-	s_copy = (char *)malloc((req_l + 1) * sizeof(char));
-	if (s_copy)
+	if (s)
 	{
-		s_copy_start = s_copy;
-		while (req_l--)
-			*s_copy++ = *(s++ + start);
-		*s_copy = '\0';
+		s_pos = (char *)s;
+		req_l = 0;
+		s_copy_start = NULL;
+		while (*(s_pos++ + start) && len--)
+			req_l++;
+		s_copy = (char *)malloc((req_l + 1) * sizeof(char));
+		if (s_copy)
+		{
+			s_copy_start = s_copy;
+			while (req_l--)
+				*s_copy++ = *(s++ + start);
+			*s_copy = '\0';
+		}
+		return (s_copy_start);
 	}
-	return (s_copy_start);
+	return (NULL);
 }
