@@ -6,13 +6,12 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:25:10 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/10 15:04:07 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/12 09:43:12 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

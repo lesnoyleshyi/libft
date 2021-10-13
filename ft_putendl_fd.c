@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 15:54:01 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/12 20:01:12 by stycho           ###   ########.fr       */
+/*   Created: 2021/10/13 20:02:42 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/13 20:14:35 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*ch_s1;
-	unsigned char	*ch_s2;
-
-	ch_s1 = (unsigned char *)s1;
-	ch_s2 = (unsigned char *)s2;
-	while (n--)
+	if (s)
 	{
-		if (*ch_s1 != *ch_s2)
-			return (*ch_s1 - *ch_s2);
-		ch_s1++;
-		ch_s2++;
+		while (*s)
+			write(fd, s++, sizeof(char));
+		write(fd, "\n", sizeof(char));
 	}
-	return (0);
 }

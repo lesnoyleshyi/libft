@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 15:54:01 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/12 20:01:12 by stycho           ###   ########.fr       */
+/*   Created: 2021/10/13 16:01:03 by stycho            #+#    #+#             */
+/*   Updated: 2021/10/13 18:16:03 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*ch_s1;
-	unsigned char	*ch_s2;
+	size_t	s_len;
+	char	*res_str;
 
-	ch_s1 = (unsigned char *)s1;
-	ch_s2 = (unsigned char *)s2;
-	while (n--)
+	if (s)
 	{
-		if (*ch_s1 != *ch_s2)
-			return (*ch_s1 - *ch_s2);
-		ch_s1++;
-		ch_s2++;
+		s_len = ft_strlen(s);
+		res_str = (char *)malloc((s_len + 1) * sizeof(char));
+		if (res_str)
+		{
+			res_str[s_len] = '\0';
+			while (s_len--)
+				res_str[s_len] = (*f)(s_len, s[s_len]);
+			return (res_str);
+		}
 	}
-	return (0);
+	return (NULL);
 }
