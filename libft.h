@@ -6,13 +6,15 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:59:15 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/13 21:22:25 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/14 16:13:34 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdlib.h>
+# include <unistd.h>
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
