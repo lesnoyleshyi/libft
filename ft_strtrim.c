@@ -6,39 +6,35 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 23:11:03 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/12 00:21:29 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/14 23:38:33 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*l_border;
-	char	*r_border;
 	char	*res;
-	char	*res_start;
+	size_t	req_len;
 
-	res_start = NULL;
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	l_border = (char *)s1;
-	while (*s1)
-		r_border = (char *)s1++;
-	while (ft_strchr(set, *r_border))
+	if (s1)
 	{
-		if (r_border == l_border)
-			return ("");
-		r_border--;
+		req_len = 0;
+		while (*s1 && ft_strchr(set, *s1))
+			s1++;
+		while (*s1)
+		{
+			s1++;
+			req_len++;
+		}
+		while (req_len && ft_strchr(set, *(--s1)))
+			req_len--;
+		if (req_len == 0)
+			return (ft_strdup(""));
+		res = (char *)malloc((req_len + 1) * sizeof(char));
+		if (res)
+			ft_strlcpy(res, s1 - req_len + 1, req_len + 1);
+		return (res);
 	}
-	res = (char *)malloc(((r_border - l_border) + 2) * sizeof(char));
-	if (res)
-	{
-		res_start = res;
-		while (l_border < (r_border + 1))
-			*res++ = *l_border++;
-		*res = '\0';
-	}
-	return (res_start);
+	return (NULL);
 }

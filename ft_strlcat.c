@@ -6,12 +6,12 @@
 /*   By: stycho <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:57:07 by stycho            #+#    #+#             */
-/*   Updated: 2021/10/12 15:00:10 by stycho           ###   ########.fr       */
+/*   Updated: 2021/10/15 00:10:56 by stycho           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
+#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -32,7 +32,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 				return (ft_strlen(src) + (dst_pos - dst));
 		}
 		dst_len = dst_pos - dst;
-		while (--dstsize)
+		while (--dstsize && *src_pos)
 			*dst_pos++ = *src_pos++;
 		*dst_pos = '\0';
 	}
