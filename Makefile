@@ -12,6 +12,8 @@ SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c\
 			\
 			ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
 
+BONUSES	=	ft_lstnew.c
+
 OBJS	=	$(SRCS:.c=.o)
 
 FLAGS	:=	-Wall -Werror -Wextra
@@ -31,5 +33,8 @@ fclean	:	clean
 			rm -f ${NAME}
 
 re		:	fclean all
+
+bonus	:	all ${BONUSES:.c=.o}
+			ar rcs ${NAME} ${BONUSES:.c=.o}
 
 .PHONY	:	all clean fclean re
