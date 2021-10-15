@@ -1,5 +1,6 @@
 *.swp
 test*
+!test_isalnum
 libft.a
 *.o
 a.out
