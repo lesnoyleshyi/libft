@@ -3,3 +3,4 @@ test*
 libft.a
 *.o
 a.out
+.idea
