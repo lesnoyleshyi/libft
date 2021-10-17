@@ -1,4 +1,5 @@
 *.swp
+test*
 !test*.c
 libft.a
 *.o
