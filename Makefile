@@ -24,7 +24,7 @@ FLAGS	:=	-Wall -Werror -Wextra
 			gcc $(FLAGS) -c $<	-o $@
 
 ${NAME}	: 	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+			ar rcs $(NAME) $?
 
 all		:	${NAME}
 
